@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="researches_action" model="ir.actions.act_window">
+        <field name="name">Scientific Researches</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library_management</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <!-- this field for search-->
+        <field name="context">{'default_categories': 'Scientific Researches', 'default_note': 'New Researches',
+            'hide_categories':1, 'hide_price':1 }</field>
+        <!-- this field for search-->
+        <field name ="domain">[('categories','=', 'Scientific Researches')]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Scientific Researches, the first step of a new sale!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_researches"
+              name="Scientific Researches"
+              parent="menu_books_root"
+              action="researches_action"
+              sequence="10"/>
+
+</odoo>

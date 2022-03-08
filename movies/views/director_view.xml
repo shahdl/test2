@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_director_kanban" model="ir.ui.view">
+        <field name="name">director.kanban</field>
+        <field name="model">director</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="gender"/>
+                <field name="nation"/>
+                <field name="note"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t_attf_class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <li>
+                                        Director_name:
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        Nation:
+                                        <field name="nation"/>
+                                    </li>
+                                     <li>
+                                        Gender:
+                                        <field name="gender"/>
+                                    </li>
+                                     <li>
+                                        Date_of_Birth:
+                                        <field name="date"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="director_form" model="ir.ui.view">
+        <field name="name">director.form</field>
+        <field name="model">director</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary" states="draft" type="object"
+                            confirm ="Are you sure that you need to confirm ?"/>
+                    <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary"  states="confirm" type="object" />
+                    <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary" states="cancel" type="object" />
+                    <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm" type="object"
+                            confirm ="Are you sure that you need to cancel ?"/>/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="nation"/>
+                            <field name="date"/>
+                        </group>
+                        <group>
+                            <field name="actor"/>
+                            <field name="job"/>
+                            <field name="gender"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+<!--                <div class="oe_chatter">-->
+<!--                    <field name="message_follower_ids"/>-->
+<!--                    <field name="activity_ids"/>-->
+<!--                    <field name="message_ids"/>-->
+<!--                </div>-->
+            </form>
+        </field>
+    </record>
+
+        <record id="director_tree" model="ir.ui.view">
+        <field name="name">director.tree</field>
+        <field name="model">director</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="nation"/>
+                <field name="note"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="director_action" model="ir.actions.act_window">
+        <field name="name">director</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">director</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new director the first step of a new sale!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="movie_root"
+              name="Movies"
+              sequence="10"/>
+
+     <menuitem id="movie_director_root"
+              name="director"
+              parent="movie_root"
+              action="director_action"
+              sequence="20"/>
+
+<!--    <menuitem id="menu_publish"-->
+<!--              name="publish"-->
+<!--              parent="menu_publish_root"-->
+<!--              action="publish_action"-->
+<!--              sequence="10"/>-->
+
+
+</odoo>

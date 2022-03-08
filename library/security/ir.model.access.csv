@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_library_management,access.library.management,model_library_management,base.group_user,1,1,1,1
+access_library_publisher,access.library.publisher,model_library_publisher,base.group_user,1,1,1,1
+access_create_book_wizard,access.create.book.wizard,model_create_book_wizard,base.group_user,1,1,1,1
+access_writer,access.writer,model_writer,base.group_user,1,1,1,1
+access_publish,access.publish,model_publish,base.group_user,1,1,1,1

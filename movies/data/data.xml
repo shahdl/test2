@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <data noupdate="1">
+        <!-- Sequences for movie -->
+        <record id="seq_movie" model="ir.sequence">
+            <field name="name">Movies Sequence</field>
+            <field name="code">movies</field>
+            <field name="prefix">M</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+      <data noupdate="1">
+        <!-- Sequences for director -->
+        <record id="seq_director" model="ir.sequence">
+            <field name="name">Director Sequence</field>
+            <field name="code">director</field>
+            <field name="prefix">D</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+          <data noupdate="1">
+        <!-- Sequences for studio -->
+        <record id="seq_studio" model="ir.sequence">
+            <field name="name">Studio Sequence</field>
+            <field name="code">studio</field>
+            <field name="prefix">S</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+              <data noupdate="1">
+        <!-- Sequences for writer -->
+        <record id="seq_library_Publisher" model="ir.sequence">
+            <field name="name">writer Sequence</field>
+            <field name="code">writer</field>
+            <field name="prefix">W</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+               <data noupdate="1">
+        <!-- Sequences for actor -->
+        <record id="seq_library_Publisher" model="ir.sequence">
+            <field name="name">actor Sequence</field>
+            <field name="code">actor</field>
+            <field name="prefix">A</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+                 <data noupdate="1">
+        <!-- Sequences for genres -->
+        <record id="seq_library_Publisher" model="ir.sequence">
+            <field name="name">genres Sequence</field>
+            <field name="code">genres</field>
+            <field name="prefix">G</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+                <data noupdate="1">
+        <!-- Sequences for person -->
+        <record id="seq_library_Publisher" model="ir.sequence">
+            <field name="name">person Sequence</field>
+            <field name="code">person</field>
+            <field name="prefix">P</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+
+</odoo>

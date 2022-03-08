@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="view_book_kanban" model="ir.ui.view">
+        <field name="name">library.books.kanban</field>
+        <field name="model">library_management</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+<!--                <field name="price"/>-->
+                <field name="categories"/>
+                <field name="publish"/>
+                <field name="pages"/>
+                <field name="writer"/>
+                <field name="note"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t_attf_class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <ul>
+                                    <field name="image" widget="image" class="oe_avatar"/>
+                                    <li>
+                                        Name:
+                                        <field name="name"/>
+                                    </li>
+                                     <li>
+                                        publish:
+                                        <field name="publish"/>
+                                    </li>
+
+                                    <li>
+                                        Categories:
+                                        <field name="categories"/>
+                                    </li>
+                                    <li>
+                                        Pages:
+                                        <field name="pages"/>
+                                    </li>
+                                    <li>
+                                        writer:
+                                        <field name="writer"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_book_form" model="ir.ui.view">
+        <field name="name">library.books.form</field>
+        <field name="model">library_management</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary"
+                            states="draft" type="object"
+                            confirm="Are you sure that you need to confirm ?"/>
+                    <button id="button_done" name="action_done" string="Mark As Done" class="btn-primary"
+                            states="confirm" type="object"/>
+                    <button id="button_draft" name="action_draft" string="Set To Draft" class="btn-primary"
+                            states="cancel" type="object"/>
+                    <button id="button_cancel" name="action_cancel" string="Cancel" states="draft,done,confirm"
+                            type="object"
+                            confirm="Are you sure that you need to cancel ?"/>
+                    <button id="button_create_book" name="%(library.action_create_book)d" string="Create Book" class="btn-primary"
+                            type="action"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done,confirm"/>
+                </header>
+                <sheet>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="publish"/>
+                            <field name="responsible_id"/>
+                            <field name="date" />
+<!--                            <field name="book_count"/>-->
+<!--                            <field name="price" invisible ="context.get('hide_price')"/>-->
+                            <field name="pages"/>
+                        </group>
+                        <group>
+                            <field name="categories" invisible ="context.get('hide_categories')"/>
+                            <field name="writer"/>
+                            <field name="publish"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+<!--    <record id="book_search" model="ir.ui.view">-->
+<!--        <field name="name">library.management.books.search</field>-->
+<!--        <field name="model">library_management</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <search string="books">-->
+<!--                <field name="name"/>-->
+<!--                <field name="categories"/>-->
+<!--                <separator/>-->
+<!--                <group expend="1" string="Group BY">-->
+<!--                    <filter string="name" name="name" context="{'group_by':'name'}"/>-->
+<!--                </group>-->
+<!--            </search>-->
+<!--        </field>-->
+<!--    </record>-->
+
+        <record id="book_tree" model="ir.ui.view">
+        <field name="name">library.books.tree</field>
+        <field name="model">library_management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="publish"/>
+                <field name="responsible_id"/>
+<!--                <field name="price"/>-->
+                <field name="categories"/>
+                <field name="writer"/>
+                <field name="note"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="Books_action" model="ir.actions.act_window">
+        <field name="name">Books</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">library_management</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <!-- this field for search-->
+<!--        <field name="context">{'search_default_name': 1, 'search_default_writer': 1}</field>-->
+        <!-- this field for search-->
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a new Book, the first step of a new sale!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_library_root"
+              name="Library Management"
+              sequence="10"/>
+
+    <menuitem id="menu_books_root"
+              name="Books"
+              parent="menu_library_root"
+              sequence="10"/>
+
+    <menuitem id="menu_books"
+              name="books"
+              parent="menu_books_root"
+              action="Books_action"
+              sequence="10"/>
+
+     <menuitem id="menu_create_books"
+              name="create book"
+              parent="menu_books_root"
+              action="action_create_book"
+              sequence="10"/>
+
+
+</odoo>

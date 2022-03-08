@@ -1,0 +1,16 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<odoo>-->
+<!--    <record id="project.project_form" model="ir.ui.view">-->
+<!--&lt;!&ndash;        <field name="name">project.project</field>&ndash;&gt;-->
+<!--        <field name="model">project.project</field>-->
+<!--        <field name="inherit_id" ref="project.edit_project"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='allowed_portal_user_ids']" position="after">-->
+<!--                <field name="deal_manager"/>-->
+<!--                <field name="deal_date"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--    </record>-->
+<!--</odoo>-->
+
+

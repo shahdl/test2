@@ -1,0 +1,18 @@
+Tasks of Your Odoo Test:
+
+Create an online movies database that will contain the following:
+- Movie model with title, genre, production year, studio,  director, poster
+- Director model with name, gender, nationality, DoB
+- Studio model with name, country, establishment year
+- Movies listing page with filters by genre and year and links to the movies' details page
+- Movie page should contain link to the director page which in turn should link to all his/her movies
+
+Bonus Tasks:
+- Many-to-many relationship between movies and genres
+- Many-to-many relationship between movies and directors
+- Actors and actresses
+
+GOOD LUCK ya Shahd!!
+https://github.com/odoo/enterprise.git
+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
+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
